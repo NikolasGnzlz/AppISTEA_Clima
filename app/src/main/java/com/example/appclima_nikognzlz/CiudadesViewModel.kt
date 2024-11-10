@@ -2,8 +2,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.appclima_nikognzlz.CiudadesIntent
-import com.example.appclima_nikognzlz.EstadoCiudades
+import com.example.appclima_nikognzlz.presentacion.ciudades.CiudadesIntent
+import com.example.appclima_nikognzlz.presentacion.ciudades.EstadoCiudades
 import kotlinx.coroutines.launch
 
 class CiudadesViewModel : ViewModel() {

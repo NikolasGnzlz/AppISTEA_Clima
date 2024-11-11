@@ -7,6 +7,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.appclima_nikognzlz.router.Ruta
+import com.example.appclima_nikognzlz.presentacion.ciudades.CiudadesPage
+import com.example.appclima_nikognzlz.presentacion.clima.ClimaPage
+
 
 @Composable
 fun MainPage() {

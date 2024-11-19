@@ -1,6 +1,8 @@
 package com.example.appclima_nikognzlz.presentacion.clima.pronostico
 
+
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -58,13 +60,47 @@ fun ErrorView(mensaje: String){
     Text(text = mensaje)
 }
 
+
+
 @Composable
-fun PronosticoView(climas: List<ListForecast>){
+fun PronosticoView(climas: List<ListForecast>) {
     LazyColumn {
-        items(items = climas) {
-            Card() {
-                Text(text = "${it.main.temp}")
+        items(items = climas) { forecast ->
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                ) {
+                    // Columna izquierda: Temperatura y Humedad
+                    Column(
+                        modifier = Modifier
+                            .weight(1f)
+                    ) {
+                        Text(text = "Temp: ${forecast.main.temp}°C")
+                        Text(text = "Humedad: ${forecast.main.humidity}%")
+                    }
+
+                    // Columna derecha: Máxima y Mínima
+                    Column(
+                        modifier = Modifier
+                            .weight(1f),
+                        horizontalAlignment = Alignment.End
+                    ) {
+                        Text(text = "Max: ${forecast.main.temp_max}°C")
+                        Text(text = "Min: ${forecast.main.temp_min}°C")
+                    }
+                }
             }
         }
     }
 }
+
+
+
+
+

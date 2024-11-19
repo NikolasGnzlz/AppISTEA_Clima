@@ -63,8 +63,11 @@ dependencies {
     implementation("io.ktor:ktor-client-android:2.3.11")
     implementation("io.ktor:ktor-client-content-negotiation:2.3.11")
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.11")
-    implementation("androidx.navigation:navigation-compose:2.4.0-alpha10")
+    implementation ("androidx.compose.material3:material3:1.2.0") // Ejemplo de versión reciente
+    implementation ("androidx.navigation:navigation-compose:2.7.0") // Para la navegación
+    implementation("io.coil-kt:coil-compose:2.4.0")
     implementation(libs.androidx.lifecycle.runtime.compose.android)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -72,4 +75,5 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
 }

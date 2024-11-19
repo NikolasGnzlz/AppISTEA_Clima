@@ -34,6 +34,7 @@ class ClimaViewModel(
                 uiState = ClimaEstado.Exitoso(
                     ciudad = clima.name ,
                     temperatura = clima.main.temp,
+                    principal = clima.weather.first().main,
                     descripcion = clima.weather.first().description,
                     st = clima.main.feels_like,
                 )

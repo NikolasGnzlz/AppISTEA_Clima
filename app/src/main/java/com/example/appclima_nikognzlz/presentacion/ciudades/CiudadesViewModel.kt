@@ -24,10 +24,21 @@ class CiudadesViewModel(
         when(intencion){
             is CiudadesIntencion.Buscar -> buscar(nombre = intencion.nombre)
             is CiudadesIntencion.Seleccionar -> seleccionar(ciudad = intencion.ciudad)
+            is CiudadesIntencion.BuscarPorGeolocalizacion -> abrirGoogleMaps()
         }
     }
 
-    private fun buscar( nombre: String){
+    private fun abrirGoogleMaps() {
+        // No llegue a este punto
+    }
+
+    private fun buscar(nombre: String) {
+
+        if (nombre.isBlank()) {
+            ciudades = emptyList()
+            uiState = CiudadesEstado.Vacio
+            return
+        }
 
         uiState = CiudadesEstado.Cargando
         viewModelScope.launch {
@@ -38,8 +49,9 @@ class CiudadesViewModel(
                 } else {
                     uiState = CiudadesEstado.Resultado(ciudades)
                 }
-            } catch (exeption: Exception){
-                uiState = CiudadesEstado.Error(exeption.message ?: "error desconocido")
+            } catch (exception: Exception) {
+
+                uiState = CiudadesEstado.Error(exception.message ?: "Error desconocido")
             }
         }
     }
